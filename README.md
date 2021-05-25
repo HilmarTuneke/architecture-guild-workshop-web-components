@@ -104,7 +104,7 @@ we create
 
 all those file shall be placed in the same folder and the style & script shall have the same naming convention, i.e. `wc-toggle-button.js/css`.
 
-you can check out a blueprint here.
+you can check out a blueprint on develop [here](https://github.com/phhbr/architecture-guild-workshop-web-components/tree/develop/blueprint).
 
 #### step 2: define API
 
@@ -129,7 +129,7 @@ questions to ask:
 - handle event emission
 - handle attribute change
 
-some solution (maybe not the best :) ) is available here.
+some solution (maybe not the best :) ) is available on branch [1-wc-api](https://github.com/phhbr/architecture-guild-workshop-web-components/tree/1-wc-api/vanilla).
 
 ### drawbacks
 
@@ -151,12 +151,13 @@ In short StencilJS was developed as a by-product of Ionic, which was used to rec
 
 ### implementation of previous toggle button
 
+You can check out project in branch [2-stencil-start](https://github.com/phhbr/architecture-guild-workshop-web-components/tree/2-stencil-start/stenciljs/my-components) and skip step 1-3 **OR** use the Stencil CLI to create a project.
+
 1. open up terminal in directory where to put your component, i.e. `stenciljs/`
 
 2. run 
     
          npm init stencil
-
 
 3. choose `component` & enter name, i.e. `my-components`
 
@@ -168,6 +169,8 @@ In short StencilJS was developed as a by-product of Ionic, which was used to rec
 6. your component is located in `src/components/my-component`
 
 7. refactor it to provide the functionality of `<my-toggle-button>`
+
+You can check out the solution in branch [3-stencil-finish](https://github.com/phhbr/architecture-guild-workshop-web-components/tree/3-stencil-finish/stenciljs/my-components/src/components/my-toggle-button).
 
 #### implementation hints
 
