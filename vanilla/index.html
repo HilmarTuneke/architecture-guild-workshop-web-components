@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="my-toggle-button.js"></script>
+</head>
+
+<body>
+    <my-toggle-button></my-toggle-button>
+    <style>
+        .slider.round {
+            background-color: cadetblue;
+        }
+    </style>
+</body>
+<script>
+    const toggleButton = document.querySelector("my-toggle-button");
+    toggleButton.addEventListener("toggleButtonChanged", event => {
+        console.log("Toggle button is checked: ", event.target.value);
+    });
+
+    //  Styling shadowed DOM
+    //  toggleButton.shadowRoot.querySelector('.slider.round').style.background = "#a83268";
+</script>
+
+</html>
