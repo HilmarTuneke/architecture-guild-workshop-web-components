@@ -6,8 +6,39 @@
 </head>
 
 <body>
-    <h1>Title</h1>
-    <p>Paragraph</p>
+    <div>
+        <div id="outside">
+            <h1>H1 in DIV inside the page</h1>
+        </div>
+        <div id="inside">
+            <h1>H1 in DIV inside the page - this will be replaced by shadow</h1>
+        </div>
+    </div>
 </body>
+
+<!--
+    function createDivWithP() {
+        var div = document.createElement('div');
+        div.classList.add('ClassOfDiv');
+        div.innerHTML = `text in div
+        <p>text in p</p>`;
+        return div;
+    }
+    // add child without shadow dom
+    document.getElementById('outside').appendChild(createDivWithP());
+    // add child with shadow dom
+    var inside = document.getElementById('inside');
+    var insideShadow = inside.attachShadow({mode: 'open'});
+    insideShadow.innerHTML = '<h1>Inside the shadow</h1>';
+    insideShadow.appendChild(createDivWithP());
+    var styleInsideShadow = document.createElement('style');
+    styleInsideShadow.textContent = `.ClassOfDiv {
+        color: red;
+    }
+    body {
+        background-color: red;
+    }`;
+    insideShadow.appendChild(styleInsideShadow);
+-->
 
 </html>
