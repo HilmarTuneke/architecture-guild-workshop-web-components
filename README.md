@@ -6,7 +6,7 @@ This workshop will teach you the basics of web components.
 
 material:
 
-- slides: https://app.deckdeckgo.com/editor/iAB3p7dY2ribWi5hFmHz?signin=success
+- slides: https://beta.deckdeckgo.io/github8338/web-components---basics/
 - source code basics
 - source code stenciljs
 
@@ -20,8 +20,8 @@ material:
 4. StencilJS
    1. alternatives
    1. motivation
-   2. implementation of a toggle button
-   3. resolving disadvantages
+   1. implementation of a toggle button
+   1. resolving disadvantages
 5. outlook
 
 ### Preparation
@@ -99,6 +99,7 @@ If you want to implement any other simple component, feel free.
 ##### step 1: skeleton of our component
 
 we create
+
 - `index.html` for the show case
 - `js-file` for component
 
@@ -109,17 +110,18 @@ you can check out a blueprint on develop [here](https://github.com/phhbr/archite
 #### step 2: define API
 
 questions to ask:
+
 - when will state change be triggered?
 
-   `ctor {...this.addEventListener(..., callback);}`
+  `ctor {...this.addEventListener(..., callback);}`
 
 - do you want to be able to manipulate the state of the component from outside? You will need an attribute for this.
 
-    `static get observedAttributes() { return ['attribute-name']}`
+  `static get observedAttributes() { return ['attribute-name']}`
 
 - do you want to be notified by state changes of the component? You will need to emit an event for this.
 
-    `... this.dispatchEvent(customEvent);`
+  `... this.dispatchEvent(customEvent);`
 
 #### step 3: implementation
 
@@ -153,22 +155,21 @@ In short StencilJS was developed as a by-product of Ionic, which was used to rec
 
 You can check out project in branch [2-stencil-start](https://github.com/phhbr/architecture-guild-workshop-web-components/tree/2-stencil-start/stenciljs/my-components) and skip step 1-3 **OR** use the Stencil CLI to create a project.
 
-1. open up terminal in directory where to put your component, i.e. `stenciljs/`
+1.  open up terminal in directory where to put your component, i.e. `stenciljs/`
 
-2. run 
-    
+2.  run
+
          npm init stencil
 
-3. choose `component` & enter name, i.e. `my-components`
+3.  choose `component` & enter name, i.e. `my-components`
 
+4.  follow instruction (i.e. switch directory to `my-components` & run `npm install && npm run start`)
 
-4. follow instruction (i.e. switch directory to `my-components` & run `npm install && npm run start`)
+5.  you can open up the stenciljs playground on `localhost:3333`
 
-5. you can open up the stenciljs playground on `localhost:3333`
+6.  your component is located in `src/components/my-component`
 
-6. your component is located in `src/components/my-component`
-
-7. refactor it to provide the functionality of `<my-toggle-button>`
+7.  refactor it to provide the functionality of `<my-toggle-button>`
 
 You can check out the solution in branch [3-stencil-finish](https://github.com/phhbr/architecture-guild-workshop-web-components/tree/3-stencil-finish/stenciljs/my-components/src/components/my-toggle-button).
 
@@ -176,14 +177,14 @@ You can check out the solution in branch [3-stencil-finish](https://github.com/p
 
 those table shows equivalents in different libraries/frameworks.
 
-| Functionality | Web Component | StencilJS | Angular |
-| --- | --- | --- | --- |
-| Element is attached | connectedCallback() | connectedCallback() | ngOnInit() |
-| Element is removed | disconnectedCallback() | disconnectedCallback() | ngOnDestroy() |
-| Attribute has changed | ngOnUpdate() | attributeChangedCallback() | @Watch('attr') |
-| Declare Attribute | observedAttribute.. | @Props() attrName: string; | @Input() attrName: string |
-| Declare Property | observedProperty.. | @Props() attrName: ComplexType; | @Input() attrName: ComplexType |
-| Emit Event | this.dispatchEvent(event) | @Event() ev: EventEmitter | @Output() ev: EventEmitter |
+| Functionality         | Web Component             | StencilJS                       | Angular                        |
+| --------------------- | ------------------------- | ------------------------------- | ------------------------------ |
+| Element is attached   | connectedCallback()       | connectedCallback()             | ngOnInit()                     |
+| Element is removed    | disconnectedCallback()    | disconnectedCallback()          | ngOnDestroy()                  |
+| Attribute has changed | ngOnUpdate()              | attributeChangedCallback()      | @Watch('attr')                 |
+| Declare Attribute     | observedAttribute..       | @Props() attrName: string;      | @Input() attrName: string      |
+| Declare Property      | observedProperty..        | @Props() attrName: ComplexType; | @Input() attrName: ComplexType |
+| Emit Event            | this.dispatchEvent(event) | @Event() ev: EventEmitter       | @Output() ev: EventEmitter     |
 
 ### let's talk the previous drawbacks
 
@@ -194,33 +195,43 @@ those table shows equivalents in different libraries/frameworks.
 - developer experience
 
 ## outlook
+
 - do we really, really need Web Components?
 
 ## references
 
 [1]: https://www.webcomponents.org/introduction
+
 1: https://www.webcomponents.org/introduction
 
 [2]: https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements
+
 2: https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements
 
 [3]: https://dom.spec.whatwg.org/#shadow-trees
+
 3: https://dom.spec.whatwg.org/#shadow-trees
 
 [4]: https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM
+
 4: https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM
 
 [5]: https://html.spec.whatwg.org/multipage/scripting.html#the-template-element
+
 5: https://html.spec.whatwg.org/multipage/scripting.html#the-template-element
 
 [6]: https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots
+
 6: https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots
 
 [7]: https://html.spec.whatwg.org/multipage/webappapis.html#integration-with-the-javascript-module-system
+
 7: https://html.spec.whatwg.org/multipage/webappapis.html#integration-with-the-javascript-module-system
 
 [8]: https://webcomponents.dev/blog/all-the-ways-to-make-a-web-component/
+
 8: https://webcomponents.dev/blog/all-the-ways-to-make-a-web-component/
 
 [9]: https://appfigures.com/top-sdks/development/apps
+
 9: https://appfigures.com/top-sdks/development/apps
