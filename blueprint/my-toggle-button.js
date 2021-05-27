@@ -1,4 +1,9 @@
-const htmlStructure = `<p class="example>something is going on here/<p>`; // put your markup here;
+const htmlStructure = `
+<div id="container">
+    <div class='switch'>
+        <div class='slider round'></div>
+    </div>
+</div>`;
 const style = `
 /* The switch - the box around the slider */
 .switch {
@@ -30,10 +35,10 @@ const style = `
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
-:host(.toggle-on) .slider {
+#container.toggle-on .slider {
   background-color: #2196f3;
 }
-:host(.toggle-on) .slider:before {
+#container.toggle-on .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
@@ -54,9 +59,25 @@ tmpl.innerHTML = `<style>${style}</style>${htmlStructure}`;
 class MyToggleButton extends HTMLElement {
     constructor() {
         super();
+        var shadow = this.attachShadow({mode: 'open'});
+        shadow.appendChild(tmpl.content.cloneNode(true));
+        this.addEventListener("click", this.changeToggleButtonState);
     }
+
+    changeToggleButtonState() {
+      const container = this.shadowRoot.children[1];
+      let hasValue = container.hasAttribute('class');
+      if (hasValue) {
+        container.removeAttribute('class');
+      } else {
+        container.setAttribute('class', 'toggle-on');
+      }
+    }
+
     connectedCallback() {}
+
     attributeChangedCallback() {}
+
     disconnectedCallback() {}
 }
 
